@@ -1,0 +1,9 @@
+{
+    "first_name": "Super",
+    "last_name": "Admin",
+    "username": "super-admin",
+    "phone": "0810000000",
+    "email": "superadmin@gmail.com",
+    "password": "admin123",
+    "role": "admin"
+}
