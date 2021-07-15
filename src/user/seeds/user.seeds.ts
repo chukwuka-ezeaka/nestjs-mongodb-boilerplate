@@ -13,8 +13,6 @@ export class UserSeed {
     autoExit: true,
   })
   async create() {
-    console.log('hereeeee');
-    console.log(Admin);
     // const user = await this.userService.seedAdmin(Admin);
     // console.log(user);
   }

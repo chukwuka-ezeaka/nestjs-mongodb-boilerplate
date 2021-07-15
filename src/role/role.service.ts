@@ -44,7 +44,7 @@ export class RoleService {
     const role = await this.roleModel.updateOne(
       { name },
       {
-        updatedAt: Date.now(),
+        name,
       },
       { upsert: true, new: true },
       function (error, doc) {

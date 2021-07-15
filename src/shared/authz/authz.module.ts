@@ -1,7 +1,7 @@
 import { forwardRef, Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
-import { UserModule } from '../user/user.module';
+import { UserModule } from '../../user/user.module';
 import { JwtStrategy } from './jwt.strategy';
 import * as dotenv from 'dotenv';
 

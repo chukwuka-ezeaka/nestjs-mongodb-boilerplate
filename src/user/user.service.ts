@@ -14,9 +14,8 @@ export class UserService {
     @InjectModel('Role') private readonly roleModel: Model<Role>,
   ) {}
 
-  async createUser(createUserDto: CreateUserDto) {
-    const { first_name, last_name, username, phone, email, password } =
-      createUserDto;
+  async createUser(body: CreateUserDto): Promise<User> {
+    const { first_name, last_name, username, phone, email, password } = body;
     let fname = first_name.charAt(0).toUpperCase() + first_name.slice(1);
     let lname = last_name.charAt(0).toUpperCase() + last_name.slice(1);
     let pass = bcrypt.hashSync(password, 10);
@@ -37,7 +36,7 @@ export class UserService {
     return result;
   }
 
-  async getUserLogin(username: string) {
+  async getUserLogin(username: string): Promise<User> {
     const user = await this.userModel.findOne({ username }).exec();
     if (!user) {
       throw new HttpException(
@@ -48,7 +47,7 @@ export class UserService {
     return user;
   }
 
-  async getUser(id: string) {
+  async getUser(id: string): Promise<User> {
     const user = await this.userModel.findById(id).exec();
     if (!user) {
       throw new HttpException(
@@ -59,7 +58,7 @@ export class UserService {
     return user;
   }
 
-  async getUsers() {
+  async getUsers(): Promise<User[]> {
     const users = await this.userModel.find().exec();
     if (!users) {
       throw new HttpException(
@@ -70,9 +69,8 @@ export class UserService {
     return users;
   }
 
-  async seedAdmin(createUserDto: CreateUserDto) {
-    const { first_name, last_name, username, phone, email, password } =
-      createUserDto;
+  async seedAdmin(body: CreateUserDto): Promise<{}> {
+    const { first_name, last_name, username, phone, email, password } = body;
     let pass = bcrypt.hashSync(password, 10);
     let name = `${first_name} ${last_name}`;
     const admin = await this.userModel.updateOne(
@@ -86,11 +84,6 @@ export class UserService {
         password: pass,
       },
       { upsert: true, setDefaultsOnInsert: true, new: true },
-      function (error, doc) {
-        if (error) {
-          console.log(error);
-        }
-      },
     );
     return admin;
   }

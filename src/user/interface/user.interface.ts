@@ -9,4 +9,6 @@ export interface User extends mongoose.Document {
   readonly phone: string;
   readonly email: string;
   readonly password: string;
+  readonly createdAt: Date;
+  readonly updatedAt: Date;
 }

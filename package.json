@@ -1,5 +1,5 @@
 {
-  "name": "real-estate-api",
+  "name": "boilerplate-api",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -27,6 +27,7 @@
     "@nestjs/mongoose": "^7.2.4",
     "@nestjs/passport": "^7.1.5",
     "@nestjs/platform-express": "^7.6.15",
+    "@nestjs/swagger": "^4.8.1",
     "@types/passport-local": "^1.0.33",
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.4.0",
@@ -41,7 +42,8 @@
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.6.6"
+    "rxjs": "^6.6.6",
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.6.0",

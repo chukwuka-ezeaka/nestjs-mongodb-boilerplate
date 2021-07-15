@@ -11,11 +11,12 @@ import {
   HttpException,
   UseFilters,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { Request, Response } from 'express';
 import { ExceptionsLoggerFilter } from '../shared/exceptions/exceptionLogger.filter';
 import { AuthenticationService } from './authentication.service';
 import { LoginDto, RegisterDto } from './dto/authentication.dto';
-
+@ApiTags('auth')
 @Controller('authentication')
 export class AuthenticationController {
   constructor(private authenticationService: AuthenticationService) {}
@@ -29,7 +30,7 @@ export class AuthenticationController {
     try {
       await this.authenticationService.register(registerDto);
 
-      return res
+      res
         .status(201)
         .send({ success: true, message: 'Registration successful' });
     } catch (e) {

@@ -17,7 +17,9 @@ import { PermissionsGuard } from '../shared/guards/permissions.guard';
 import { GetUserDto } from './dto/user.dto';
 import { UserService } from './user.service';
 import { Request, Response } from 'express';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('user')
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
